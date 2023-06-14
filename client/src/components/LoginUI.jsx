@@ -5,6 +5,7 @@ import axios from "axios";
 import useUserStore from "../store/userStore";
 import baseurl from "../url";
 import Logo from "../assets/GSymbol.webp";
+import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -46,7 +47,7 @@ export const LoginUI = () => {
         handleUser(response.data.userId);
         navigate("/dashboard");
       } else {
-        alert("Invalid email or password.");
+        toast("Invalid email or password.");
       }
     } catch (error) {
       console.error(error);
