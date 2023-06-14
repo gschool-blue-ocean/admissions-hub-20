@@ -5,20 +5,32 @@ import axios from "axios";
 import useUserStore from "../store/userStore";
 import baseurl from "../url";
 import Logo from "../assets/GSymbol.webp";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const LoginUI = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  // const onSubmit = (data) => console.log(data);
+  console.log(errors);
+
   const navigate = useNavigate();
   const handleUser = useUserStore((state) => state.setUserId);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmission = async (e) => {
     e.preventDefault();
-
-    // Email and password validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     try {
       // Send credentials to the server for authentication
@@ -38,7 +50,7 @@ export const LoginUI = () => {
       }
     } catch (error) {
       console.error(error);
-      alert("An error occurred during authentication.");
+      toast("An error occurred during authentication.");
     }
   };
 
@@ -54,6 +66,18 @@ export const LoginUI = () => {
         alignItems: "center",
       }}
     >
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div>
         <img
           src={Logo}
@@ -61,7 +85,14 @@ export const LoginUI = () => {
           style={{ display: "block", margin: "0 auto" }}
         />
         <h1>Welcome to Galvanize Admissions</h1>
-        <Form>
+        <Form
+          onSubmit={handleSubmit((data) => {
+            if (!data.message) {
+              setEmail(data.email);
+              setPassword(data.password);
+            }
+          })}
+        >
           <Form.Group style={{ color: "black", fontWeight: "bold" }}>
             <Row>
               <Form.Label column sm={4}>
@@ -72,12 +103,25 @@ export const LoginUI = () => {
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  // value={email}
+                  // I'm not sure why they did this? if there's a good reason to capture this every change i can re-do our submission
+                  // onChange={(e) => setEmail(e.target.value)}
+                  {...register("email", {
+                    required: {
+                      value: true,
+                      message: "Email is required",
+                    },
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Please enter a valid email",
+                    },
+                  })}
                 />
-                <Form.Text style={{ color: "black", fontWeight: "bold" }}>
-                  Please use the email that you check most often.
-                </Form.Text>
+                {errors.email && (
+                  <Form.Text style={{ color: "black", fontWeight: "bold" }}>
+                    {errors.email.message}
+                  </Form.Text>
+                )}
               </Col>
             </Row>
           </Form.Group>
@@ -91,13 +135,24 @@ export const LoginUI = () => {
                 <Form.Control
                   type="password"
                   placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  // value={password}
+                  // onChange={(e) => setPassword(e.target.value)}
+                  {...register("password", {
+                    required: {
+                      value: true,
+                      message: "Password is required",
+                    },
+                    pattern: {
+                      value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                      message: "Please enter a valid password",
+                    },
+                  })}
                 />
-                <Form.Text style={{ color: "black", fontWeight: "bold" }}>
-                  Password must be 8 characters long.<br></br>
-                  Must have a special character eg., @$#! <br></br>
-                </Form.Text>
+                {errors.password && (
+                  <Form.Text style={{ color: "black", fontWeight: "bold" }}>
+                    {errors.password.message}
+                  </Form.Text>
+                )}
               </Col>
             </Row>
           </Form.Group>
@@ -109,7 +164,7 @@ export const LoginUI = () => {
               className="btn"
               variant="primary"
               type="submit"
-              onClick={handleSubmit}
+              onClick={handleSubmission}
             >
               Login!
             </Button>
