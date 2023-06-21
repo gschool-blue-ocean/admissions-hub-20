@@ -4,22 +4,17 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: mysecretpassword
+  POSTGRES_DB: testdb
+  SOCKET_SERVER_PORT: 3175
+  API_PORT: 3000
+  CLIENT_PORT: 5173
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: mysecretpassword
-          POSTGRES_DB: testdb
-          SOCKET_SERVER_PORT: 3175
-          API_PORT: 3000
-          CLIENT_PORT: 5173
-        ports:
-          - 5432:5432
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
