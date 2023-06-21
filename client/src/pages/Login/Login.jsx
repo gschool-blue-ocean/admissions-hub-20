@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Row, Form, Button } from "react-bootstrap";
 import useUserStore from "../../store/userStore";
@@ -52,6 +52,10 @@ export const Login = () => {
 
     setValidated(true);
   };
+
+  useEffect(() => {
+    document.title = "Login | Galvanize Admissions";
+  }, []);
 
   return (
     <div className={styles.cardWrapper}>
