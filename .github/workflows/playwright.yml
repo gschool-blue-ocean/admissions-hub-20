@@ -4,13 +4,6 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-env:
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: mysecretpassword
-  POSTGRES_DB: testdb
-  SOCKET_SERVER_PORT: 3175
-  API_PORT: 3000
-  CLIENT_PORT: 5173
 jobs:
   test:
     timeout-minutes: 60
@@ -22,8 +15,6 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm ci
-      - name: Start Docker Compose
-        run: docker-compose up --build
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
