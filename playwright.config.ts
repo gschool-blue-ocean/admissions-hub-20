@@ -70,8 +70,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "npm run dev --prefix=client && npm run dev --prefix=api",
-    url: 'http://127.0.0.1:5173',
+    command: process.env.CI ? "vite preview --port 5173 --prefix=client" : "vite dev --prefix=client",
+    port: 5173,
     reuseExistingServer: !process.env.CI,
   },
 });
