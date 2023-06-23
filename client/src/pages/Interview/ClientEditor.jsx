@@ -9,10 +9,10 @@ import {
 import { connect, io } from "socket.io-client";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const socket = io(`127.0.0.1:${import.meta.env.VITE_SOCKET_SERVER_PORT}/`);
+const socket = io("https://round-wrench-production.up.railway.app/");
 
 // set the height for the editor here
-const editorHeight = "400px";
+const editorHeight = "800px";
 
 function ClientEditor() {
   const [userList, setUserList] = useState([]);
@@ -22,6 +22,8 @@ function ClientEditor() {
   const [update, setUpdate] = useState(null);
   // sandpack is general instances for the code editor, listen is a function that captures from the bundler
   const { sandpack, listen } = useSandpack();
+  // stop toast from sending like 100 notifs
+  const [ isNotified, setIsNotified ] = useState(false)
   // this grabs the current code in the editor window
   let activeCode = useActiveCode();
 
@@ -33,7 +35,7 @@ function ClientEditor() {
   socket.on("connect", () => {
     toast("Connected to web socket, you're live!", {
       position: "bottom-right",
-      autoClose: 5000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -81,7 +83,7 @@ function ClientEditor() {
     <>
       {/* Same as */}
       <ToastContainer />
-      <SandpackLayout style={{ height: editorHeight }}>
+      <SandpackLayout style={{ height: editorHeight, width: '100%' }}>
         <SandpackCodeEditor
           showTabs={true}
           showLineNumbers={true}

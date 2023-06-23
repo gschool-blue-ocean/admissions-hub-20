@@ -118,12 +118,6 @@ ___
 
 ![Interview](/documentation/images/mcsp-20/interview.png)
 
-## | Sprint 2 Completion 🏁
-#### Login
-#### Dashboard
-#### Interview
-___
-___
 ## Developer Setup
 *NOTE* We are using Dockerized environment only in a developer build. When we were ready to deploy it, we didn't use Docker. Refer to the [Deployment Setup](#deployment-setup) section when ready to deploy.
 The API is deployed to Railway, and then railway pointes to vercel.
