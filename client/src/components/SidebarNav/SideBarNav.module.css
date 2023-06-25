@@ -1,0 +1,12 @@
+#profile-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* border: 1px solid red; */
+}
+
+#profile-card {
+  border: 1px solid green;
+  height: 5em;
+  width: 100px;
+}
