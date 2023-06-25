@@ -8,6 +8,7 @@ const SidebarNav = ({ userName }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userid");
+    location.reload();
   };
 
   const [profileOptionsOpen, setProfileOptionsOpen] = useState(false);
@@ -25,20 +26,16 @@ const SidebarNav = ({ userName }) => {
           <p className="m-0 fs-5 text-secondary">Admissions</p>
         </div>
       </div>
-      <ul className="list-unstyled pt-5 mx-4">
-        <li className="text-secondary pb-3">MAIN MENU</li>
+      <ul className="list-unstyled pt-5 d-flex flex-column ">
+        <li className="text-secondary pb-3 align-self-center">MAIN MENU</li>
         <li>
-          <Link to="/dashboard">DASHBOARD</Link>
+          <Link to="/dashboard" className="btn btn-light w-100 ">
+            DASHBOARD
+          </Link>
         </li>
         <li>
-          <Link to="/interview">INTERVIEW</Link>
-        </li>
-        <li>
-          <Link to="/editprofile">EDIT PROFILE</Link>
-        </li>
-        <li>
-          <Link to="/login" onClick={handleLogout}>
-            LOGOUT
+          <Link to="/interview" className="btn btn-light w-100 ">
+            INTERVIEW
           </Link>
         </li>
       </ul>
