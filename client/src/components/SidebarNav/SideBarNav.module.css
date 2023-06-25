@@ -1,12 +1,8 @@
 #profile-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  /* border: 1px solid red; */
+  transition: 0.2s;
 }
 
-#profile-card {
-  border: 1px solid green;
-  height: 5em;
-  width: 100px;
+#profile-container:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
 }
