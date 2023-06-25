@@ -15,34 +15,37 @@ const App = () => {
   // here's where we can retrieve the files with questions in the future
   // Note: App will be used as a wrapper for all pages
 
-    //Loader data is from the index.jsx file
-    const [token, userid] = useLoaderData();
-    const navigate = useNavigate();
-    const setUserId = useUserStore((state) => state.setUserId);
-    const [userName, setUserName] = useState("");
-  
-    useEffect(() => {
-      if (!token) navigate("/login");
-      if (!userid) {
-        navigate("/login");
-      } else {
-        setUserId(userid);
-      }
-    });
-    
-    // Performing a fetch to get the userName onto the dashboard
-    useEffect(() => {
-      const fetchUserData = async () => {
-        fetch(`${baseurl}/user/${userid}`).then(response => response.json()).then(data => {
+  //Loader data is from the index.jsx file
+  const [token, userid] = useLoaderData();
+  const navigate = useNavigate();
+  const setUserId = useUserStore((state) => state.setUserId);
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    if (!token) navigate("/login");
+    if (!userid) {
+      navigate("/login");
+    } else {
+      setUserId(userid);
+    }
+  });
+
+  // Performing a fetch to get the userName onto the dashboard
+  useEffect(() => {
+    const fetchUserData = async () => {
+      fetch(`${baseurl}/user/${userid}`)
+        .then((response) => response.json())
+        .then((data) => {
           // console.log(data.first_name);
-          setUserName(data.first_name)}
-        )};
-      fetchUserData();
-    }, []);
+          setUserName(data.first_name);
+        });
+    };
+    fetchUserData();
+  }, []);
 
   return (
     <main>
-      <SidebarNav />
+      <SidebarNav userName={userName} />
       <section>
         <header>
           <h3 className="m-0 p-4 fs-3">{`${userName}'s`} Dashboard</h3>
