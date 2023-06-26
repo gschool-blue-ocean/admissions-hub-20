@@ -76,7 +76,6 @@ export default function Table() {
         }}
         pageSizeOptions={[5, 10]}
         onRowClick={(params) => {
-          console.log(params);
           setStudentId(params.row.student_id);
         }}
       />

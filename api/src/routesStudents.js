@@ -16,13 +16,22 @@ async function findOne(req, res, next) {
   if (Number.isNaN(parseInt(req.params.id))) {
     res.sendStatus(400);
   } else {
-    const result = await db
-      .query("SELECT * FROM students WHERE student_id = $1", [req.params.id])
-      .catch(next);
-    if (result.rows.length != 1) {
-      res.sendStatus(404);
-    } else {
-      res.send(result.rows[0]);
+    const query = `
+      SELECT first_name, last_name, email, start_date, status, score, attempt_id, date, notes
+      FROM students
+      LEFT JOIN attempts ON students.student_id = attempts.student_id
+      WHERE students.student_id = $1
+      ORDER BY attempts.date ASC;
+    `;
+    try {
+      const result = await db.query(query, [req.params.id]);
+      if (result.rows.length === 0) {
+        res.sendStatus(404); // No student found with the provided ID
+      } else {
+        res.send(result.rows); // Send all rows (multiple rows) as response
+      }
+    } catch (error) {
+      next(error); // Pass the error to the error-handling middleware
     }
   }
 }
