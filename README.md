@@ -9,10 +9,11 @@ Agile group project to rework an ***admissions hub***  to track incoming student
   - [Features ☑️](#features)
   - [Architecture 🏛️](#architecture)
   - [Project Screenshots 📸 ](#progress-screenshots-🧱)
-      - [Inhereted project state 🧰](#project-at-the-time-we-took-it-over)
-      - [Sprint 1 Completeion ⏳](#sprint-1-completion)
-      - [Sprint 2 Completeion 🏁](#sprint-2-completion-🏁)
-  - [Setup ⚙️](#setup)
+      - [Inherited project state 🧰](#project-at-the-time-we-took-it-over)
+      - [Sprint 1 Completion ⏳](#sprint-1-completion)
+      - [Sprint 2 Completion 🏁](#sprint-2-completion)
+  - [Developer Setup ⚙️](#developer-setup)
+  - [Deployment Setup 🚀](#deployment-setup)
   - [Usage ✍️](#usage)
   - [Current Status 🟥🟨🟩](#current-status)
 - [Room For Improvement ](#room-for-improvement)
@@ -105,22 +106,34 @@ ___
 
 #### Login
 
-![Login](/documentation/images/mcsp-20/login.png)
-![Create_Account](/documentation/images/mcsp-20/create_account.png)
-___
+![Login](/documentation/images/mcsp-20_sprint1/login.png)
+![Create_Account](/documentation/images/mcsp-20_sprint1/create_account.png)
+
 
 #### Dashboard
 
-![Dashboard](/documentation/images/mcsp-20/dashboard.png)
+![Dashboard](/documentation/images/mcsp-20_sprint1/dashboard.png)
 ___
 
 #### Interview
 
-![Interview](/documentation/images/mcsp-20/interview.png)
+![Interview](/documentation/images/mcsp-20_sprint1/interview.png)
+___
+### Sprint 2 Completion
+#### Login
+![Login](updateME)
+![Create_Account](updateME)
+#### Dashboard
+![Dashboard](updateME)
+#### Interview
+![Interview](updateME)
 
+___
+___
 ## Developer Setup
+
 *NOTE* We are using Dockerized environment only in a developer build. When we were ready to deploy it, we didn't use Docker. Refer to the [Deployment Setup](#deployment-setup) section when ready to deploy.
-The API is deployed to Railway, and then railway pointes to vercel.
+The API is deployed to Railway, and then railway points to vercel.
 - Fork and clone this repository
 - From the root directory of the cloned repository
   - npm install
@@ -168,8 +181,7 @@ ___
   - A "student-facing" side of the application for students to manage their status
   - Adding photos to users and students' profiles.
   - Having a data visualization of the number of students who pass/fail the interview, maybe some other metrics for Galvanize to capture.
-- Todo:
-  - deployment
+
 
 ## Acknowledgements
 
