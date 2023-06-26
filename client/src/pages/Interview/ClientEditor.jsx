@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   SandpackLayout,
   SandpackCodeEditor,
@@ -23,7 +23,7 @@ function ClientEditor() {
   // sandpack is general instances for the code editor, listen is a function that captures from the bundler
   const { sandpack, listen } = useSandpack();
   // stop toast from sending like 100 notifs
-  const [ isNotified, setIsNotified ] = useState(false)
+  const isNotified = useRef(false);
   // this grabs the current code in the editor window
   let activeCode = useActiveCode();
 
@@ -33,16 +33,19 @@ function ClientEditor() {
   });
 
   socket.on("connect", () => {
-    toast("Connected to web socket, you're live!", {
-      position: "bottom-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    if (!isNotified.current) {
+      toast("Connected to web socket, you're live!", {
+        position: "bottom-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      isNotified.current = true;
+    }
   });
 
   // listener for when server decides to feed data
@@ -83,7 +86,7 @@ function ClientEditor() {
     <>
       {/* Same as */}
       <ToastContainer />
-      <SandpackLayout style={{ height: editorHeight, width: '100%' }}>
+      <SandpackLayout style={{ height: editorHeight, width: "100%" }}>
         <SandpackCodeEditor
           showTabs={true}
           showLineNumbers={true}
