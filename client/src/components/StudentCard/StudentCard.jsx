@@ -13,9 +13,10 @@ const StudentCard = () => {
 
   useEffect(() => {
     if (studentId) {
-        fetch(`${baseurl}/student/${studentId}`)
+      fetch(`${baseurl}/student/${studentId}`)
         .then((res) => res.json())
         .then((data) => {
+          //This data is coming is as multiple rows due to the left join in the api. It is pulling multiple rows of data for the one student because that student has multiple attempts in the attempt table. For the studentName, first_name, last_name, email, start_date, and status below, we only need to pull the data from the first index of the array, hence the "data[0].first_name", etc.
           setStudentData(data);
           setStudentName(`${data[0].first_name} ${data[0].last_name}`);
         });
@@ -66,6 +67,7 @@ const StudentCard = () => {
       </div>
       <div className={StudentCardCSS.studentInfoCard}>
         <h3 className={StudentCardCSS.notesHeading}>Notes:</h3>
+        {/* Here is where we utilize the other rows of data from the api call to grab each note and date for display to the page */}
         {studentData.map((note, index) => (
           <div key={note.attempt_id}>
             <p className={StudentCardCSS.notesInfo}>
