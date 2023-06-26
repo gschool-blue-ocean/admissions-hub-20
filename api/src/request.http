@@ -11,6 +11,10 @@ POST http://localhost:3000/user/
 GET http://localhost:3000/students
 
 ###
+GET http://localhost:3000/student/1
+
+
+###
 GET http://localhost:3000/attempts/student/9
 
 

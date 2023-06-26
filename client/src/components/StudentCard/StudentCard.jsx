@@ -13,11 +13,12 @@ const StudentCard = () => {
 
   useEffect(() => {
     if (studentId) {
-      fetch(`${baseurl}/student/${studentId}`)
+        fetch(`${baseurl}/student/${studentId}`)
         .then((res) => res.json())
         .then((data) => {
           setStudentData(data);
-          setStudentName(`${data.first_name} ${data.last_name}`);
+          console.log(studentData);
+          setStudentName(`${data[0].first_name} ${data[0].last_name}`);
         });
     }
   }, [studentId]);
@@ -39,19 +40,19 @@ const StudentCard = () => {
             src="https://img.icons8.com/?size=512&id=kDoeg22e5jUY&format=png"
           ></img>
           <h3>
-            {studentData.first_name} {studentData.last_name}
+            {studentData[0].first_name} {studentData[0].last_name}
           </h3>
         </div>
         <ul className={StudentCardCSS.studentInfoList}>
           <li className={StudentCardCSS.studentInfo}>
-            Email: <p>{studentData.email}</p>
+            Email: <p>{studentData[0].email}</p>
           </li>
           <li className={StudentCardCSS.studentInfo}>
-            Cohort start: <p>{studentData.start_date}</p>
+            Cohort start: <p>{studentData[0].start_date}</p>
           </li>
           <li className={StudentCardCSS.studentInfo}>
             Status:
-            <StatusTag studentStatus={studentData.status} />
+            <StatusTag studentStatus={studentData[0].status} />
           </li>
         </ul>
         <button
@@ -64,15 +65,17 @@ const StudentCard = () => {
           Start new interview
         </button>
       </div>
-            {/* <div className={StudentCardCSS.studentInfoCard}>
-                    <h3 className={StudentCardCSS.notesHeading}>Notes:</h3>
-                    {studentData.notes.map((note,index) => (
-                        <div key={index}>
-                            <p className={StudentCardCSS.notesInfo}>Attempt {note.attemptNum}: {note.date}</p>
-                            <p className={StudentCardCSS.notesNarrative}>{note.content}</p>
-                        </div>
-                    ))}
-                </div> */}
+      <div className={StudentCardCSS.studentInfoCard}>
+        <h3 className={StudentCardCSS.notesHeading}>Notes:</h3>
+        {studentData.map((note, index) => (
+          <div key={note.attempt_id}>
+            <p className={StudentCardCSS.notesInfo}>
+              Attempt {index + 1}: {new Date(note.date).toLocaleDateString()}{" "}
+            </p>
+            <p className={StudentCardCSS.notesNarrative}>{note.notes}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
