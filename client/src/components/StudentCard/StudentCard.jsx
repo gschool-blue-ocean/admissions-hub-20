@@ -17,7 +17,6 @@ const StudentCard = () => {
         .then((res) => res.json())
         .then((data) => {
           setStudentData(data);
-          console.log(studentData);
           setStudentName(`${data[0].first_name} ${data[0].last_name}`);
         });
     }
