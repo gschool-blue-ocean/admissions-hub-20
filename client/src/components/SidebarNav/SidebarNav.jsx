@@ -18,7 +18,7 @@ const SidebarNav = ({ userName }) => {
   };
 
   return (
-    <nav className="d-flex flex-column p-0 z-2">
+    <nav className="d-flex flex-column p-0 z-2 position-sticky min-vh-100 sticky-top">
       <div className="d-flex justify-content-center align-items-center mx-4">
         <img src={Logo} alt="Galvanize Inc logo" width={"48px"} />
         <div className="ms-1">
@@ -31,11 +31,6 @@ const SidebarNav = ({ userName }) => {
         <li>
           <Link to="/dashboard" className="btn btn-light w-100 ">
             DASHBOARD
-          </Link>
-        </li>
-        <li>
-          <Link to="/interview" className="btn btn-light w-100 ">
-            INTERVIEW
           </Link>
         </li>
       </ul>
