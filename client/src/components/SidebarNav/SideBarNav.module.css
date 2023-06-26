@@ -8,21 +8,18 @@
   cursor: pointer;
 }
 
-#bar {
-  width: 80%;
-  height: 1px;
-  margin: 20px 0 0 0;
-  background-color: gray;
-  align-self: center;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
 
 nav {
-  /* animation: open-nav 1s; */
-  transition: 1s;
+  max-width: 1000px;
+  transition: 0.8s;
+}
+
+.close-nav {
+  max-width: 65px;
+  transition: 0.4s;
 }
 
 @keyframes open-nav {
