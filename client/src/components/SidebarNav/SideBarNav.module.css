@@ -7,3 +7,30 @@
   transition: 0.4s;
   cursor: pointer;
 }
+
+#bar {
+  width: 80%;
+  height: 1px;
+  margin: 20px 0 0 0;
+  background-color: gray;
+  align-self: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+nav {
+  /* animation: open-nav 1s; */
+  transition: 1s;
+}
+
+@keyframes open-nav {
+  from {
+    max-width: 0;
+  }
+
+  to {
+    max-width: 1000px;
+  }
+}
