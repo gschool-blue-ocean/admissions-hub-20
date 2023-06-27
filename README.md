@@ -88,9 +88,10 @@ ___
 
 ## Architecture
 
+### Deployment Structure:
+![Deployment Structure](/documentation/images/mcsp-20_sprint2/Deployment%20Structure.png)
 ### Final ERD for Database:
 ![Entity Relationship Diagram](/documentation/images/mcsp-20_sprint2/Final%20ERD.png)
-![Deployment Structure](UpdateMe)
 ___
 ___
 
