@@ -51,14 +51,14 @@ ___
   [![CSS](https://img.shields.io/badge/-CSS-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
   [![React](https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
   [![React Router](https://img.shields.io/badge/-React_Router-red?style=flat&logo=reactrouter&logoColor=black)](https://reactrouter.com/en/main)
-  [![React-Auth](https://img.shields.io/badge/-React_Auth-red?style=flat&logo=npm&logoColor=black)](https://www.npmjs.com/package/react-auth-kit)
   [![Jest](https://img.shields.io/badge/-Jest-purple?style=flat&logo=jest&logoColor=black)](https://jestjs.io/)
   [![Bootstrap](https://img.shields.io/badge/-Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
   [![Vite](https://img.shields.io/badge/-Vite-646CFF?style=flat&logo=vite&logoColor=F6DC40)](https://vitejs.dev/)
   
   [![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat&logo=Node.js&logoColor=black)](https://nodejs.org/)
   [![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
-  [![Supabase](https://img.shields.io/badge/-Supabase-3FCF8E?style=flat&logo=supabase&logoColor=black)](https://supabase.com/)
+  [![Railway](https://img.shields.io/badge/-Railway-3FCF8E?style=flat&logo=railway&logoColor=black)](https://railway.app/)
+  [![Vercel](https://img.shields.io/badge/-Vercel-FFA500?style=flat&logo=vercel&logoColor=black)](https://vercel.com/)
   [![Code Sandbox](https://img.shields.io/badge/Code%20Sandbox-Live%20code%20editor-blue?style=plastic&logo=codesandbox)](https://codesandbox.io/?from-app=1)
   [![JSON Web Tokens](https://img.shields.io/badge/JSON%20Web%20Tokens-blue?style=plastic&logo=jsonwebtokens)](https://jwt.io/)
 
@@ -88,7 +88,10 @@ ___
 
 ## Architecture
 
-### UPDATE ME AFTER SECOND SPRINT.
+### Deployment Structure:
+![Deployment Structure](/documentation/images/mcsp-20_sprint2/Deployment%20Structure.png)
+### Final ERD for Database:
+![Entity Relationship Diagram](/documentation/images/mcsp-20_sprint2/Final%20ERD.png)
 ___
 ___
 
@@ -121,12 +124,13 @@ ___
 ___
 ### Sprint 2 Completion
 #### Login
-![Login](updateME)
-![Create_Account](updateME)
+![Login](/documentation/images/mcsp-20_sprint2/login.png)
+![Create_Account](/documentation/images/mcsp-20_sprint2/create_account.png)
+![Update_Account](/documentation/images/mcsp-20_sprint2/update_account.png)
 #### Dashboard
-![Dashboard](updateME)
+![Dashboard](/documentation/images/mcsp-20_sprint2/dashboard.png)
 #### Interview
-![Interview](updateME)
+![Interview](/documentation/images/mcsp-20_sprint2/interview.png)
 
 ___
 ___
@@ -193,5 +197,4 @@ ___
 
 |            |            | Contributors           |            |            |
 |-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| <a href="https://www.linkedin.com/in/imchrisstew/"><img src="https://media.licdn.com/dms/image/D5635AQHt01juJ9QveQ/profile-framedphoto-shrink_800_800/0/1680328466357?e=1687572000&v=beta&t=1QwnCzayaahfA6uWIAjai9syFfFI8TGGlK2ivtvDOSc" alt="Chris Stewart" style="border-radius: 50%; max-width: 200px; max-height: 200px; width: 100%; height: auto;"></a>         | <a href="https://www.linkedin.com/in/ranegray/"><img src="https://media.licdn.com/dms/image/D4E35AQGE-Bem81uMyQ/profile-framedphoto-shrink_800_800/0/1681827900706?e=1687568400&v=beta&t=J56aDqT3EliqrAdrLj7g4A3osIDz8cZZsw2krp0Uypo" alt="Rane Gray" style="border-radius: 50%; max-width: 200px; max-height: 200px; width: 100%; height: auto;"></a>             | <a href="https://www.linkedin.com/in/jordan-carlson99/"><img src="https://media.licdn.com/dms/image/D4E35AQGrrjb8pGAl3g/profile-framedphoto-shrink_800_800/0/1683735122928?e=1687572000&v=beta&t=TTc61zFA-2YfhUTQWnyQsiZjS6fbPGp3SIECW8Q5dGk" alt="Jordan Carlson" style="border-radius: 50%; max-width: 200px; max-height: 200px; width: 100%; height: auto;"></a>    | <a href="https://www.linkedin.com/in/daniel-purdy/"><img src="https://media.licdn.com/dms/image/D5635AQE9CIe_lzJ8lw/profile-framedphoto-shrink_800_800/0/1680780979021?e=1687572000&v=beta&t=c-kiJdHPWilfRJppwe0QNuKdO_AP0Viob1bOlfXMHF8" alt="Daniel Purdy" style="border-radius: 50%; max-width: 200px; max-height: 200px; width: 100%; height: auto;"></a>         | <a href="https://www.linkedin.com/in/joegoralczyk/"><img src="https://media.licdn.com/dms/image/D5635AQFcbr2AdRSDyQ/profile-framedphoto-shrink_800_800/0/1684099622257?e=1687572000&v=beta&t=27HbEewIKl9uqqhpl5TQb-3GHjLAHcPVEo0kv_sTraA" alt="Joe Goralczy" style="border-radius: 50%; max-width: 200px; max-height: 200px; width: 100%; height: auto;"></a>         |
-| Chris Stewart         | Rane Gray             | Jordan Carlson        | Daniel Purdy          | Joe Goralczyk          |
+| <a href="https://www.linkedin.com/in/imchrisstew/">Chris Stewart</a>         | <a href="https://www.linkedin.com/in/ranegray/">Rane Gray</a>             | <a href="https://www.linkedin.com/in/jordan-carlson99/">Jordan Carlson</a>    | <a href="https://www.linkedin.com/in/daniel-purdy/">Daniel Purdy</a>         | <a href="https://www.linkedin.com/in/joegoralczyk/">Joe Goralczyk</a>         |
