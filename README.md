@@ -88,7 +88,9 @@ ___
 
 ## Architecture
 
-### UPDATE ME AFTER SECOND SPRINT.
+### Final ERD for Database:
+![Entity Relationship Diagram](/documentation/images/mcsp-20_sprint2/Final%20ERD.png)
+![Deployment Structure](UpdateMe)
 ___
 ___
 
@@ -125,9 +127,9 @@ ___
 ![Create_Account](/documentation/images/mcsp-20_sprint2/create_account.png)
 ![Update_Account](/documentation/images/mcsp-20_sprint2/update_account.png)
 #### Dashboard
-![Dashboard](updateME)
+![Dashboard](/documentation/images/mcsp-20_sprint2/dashboard.png)
 #### Interview
-![Interview](updateME)
+![Interview](/documentation/images/mcsp-20_sprint2/interview.png)
 
 ___
 ___
