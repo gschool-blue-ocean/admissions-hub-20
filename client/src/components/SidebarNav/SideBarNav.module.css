@@ -7,3 +7,27 @@
   transition: 0.4s;
   cursor: pointer;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+nav {
+  max-width: 1000px;
+  transition: 0.8s;
+}
+
+.close-nav {
+  max-width: 65px;
+  transition: 0.4s;
+}
+
+@keyframes open-nav {
+  from {
+    max-width: 0;
+  }
+
+  to {
+    max-width: 1000px;
+  }
+}
