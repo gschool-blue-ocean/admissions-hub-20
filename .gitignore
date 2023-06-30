@@ -1,3 +1,6 @@
 **/node_modules/
 /client/src/dist
 .env
+/test-results/
+/playwright-report/
+/playwright/.cache/

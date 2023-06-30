@@ -12,6 +12,7 @@
     "start": "npm install --prefix=api && npm start --prefix=api"
   },
   "devDependencies": {
+    "@playwright/test": "^1.35.1",
     "concurrently": "^7.1.0",
     "prettier": "^2.8.4"
   },
